@@ -1,0 +1,93 @@
+
+SourceList["BRDV"] = {
+	name : "BR'sderivations",
+	abbreviation : "BRDV",
+	group : "homebrew",
+	url : "none",
+};
+
+AddSubClass("monk", "way of the pilgrim", {
+	regExpSearch : /pilgrim|traveler|voyager/i,
+	subname : "Way of the Pilgrim",
+	source : ["BRDV", 0],
+	features : {
+		"subclassfeature3a" : {
+			name : "Wanderer's Staff",
+			source : ["BRDV", 0],
+			minlevel : 3,
+			description : desc([
+				"I know the Shillelagh and druidcraft cantrips.",
+				"I also gain proficiency with the Nature skill and woodcarver's tools.",
+			]),
+			skills : ["Nature"],
+			toolProfs : ["Woodcarver's supplies"],
+			spellcastingBonus : {
+				name : "Home on the Road",
+				spells : ["shillelagh", "druidcraft"],
+				selection : ["shillelagh", "druidcraft"],
+				times : 2,
+			},
+		},
+		"subclassfeature3b" : {
+			name : "Burst of Ki",
+			source : ["BRDV", 0],
+			minlevel : 3,
+			description : desc([
+				"When I hit a creature with weapon attack, I can spend 1 ki point to deal extra damage.",
+				"This damage is an amount of Force damage equal to my martial arts die.",
+				"I can apply this extra damage only once per turn",
+			]),
+		},
+		"subclassfeature6" : {
+			name : "The People along the Way",
+			source : ["BRDV", 0],
+			minlevel : 6,
+			description : "\n   " + "My travels let me add my wisdom modifier to any charisma check." + "\n   " + "I also gain proficiency in Deception, Performance, Intimidation or Persuasion.",
+			skillstxt : "Choose Deception, Performance, Intimidation or Persuasion.",
+			addMod : { type : "skill", field : ["Persuasion", "Deception", "Performance", "Intimidation"], mod : "Wis", text : "I can add my Wisdom modifier to any Charisma checks" },
+			},
+		},
+		"subclassfeature11a" : {
+			name : "Home on the Road",
+			source : ["BRDV", 0],
+			minlevel : 11,
+			description : "\n   " + "By spending 2 ki points, I can cast Leomund's Tiny Hut.",
+			additional : "2 ki points",
+			spellcastingBonus : {
+				name : "Home on the Road",
+				spells : ["leomund's tiny hut"],
+				selection : ["leomund's tiny hut"],
+				firstCol : 2,
+				times : 1,
+			},
+		},
+		"subclassfeature11b" : {
+			name : "Elemental Resilience",
+			source : ["BRDV", 0],
+			minlevel : 11,
+			description : desc([
+				"I can use my reaction and ki points to cast Absorb Elements.",
+				"The level of the spell is equal to the number of ki points consumed.",
+				"I cannot use more than 5 ki points to cast this spell.",
+			]),
+			spellcastingBonus : {
+				name : "Elemental Resilience",
+				spells : ["absorb elements"],
+				selection : ["absorb elements"],
+				firstCol : 1,
+				times : 1,
+			},
+		},
+		"subclassfeature17" : {
+			name : "Wanderer's Intuition",
+			source : ["BRDV", 0],
+			minlevel : 17,
+			description : "\n   " + "I have advantage in Insight checks and Initiative checks and cannot be surprised.",
+		}
+	}
+});
+
+
+
+
+

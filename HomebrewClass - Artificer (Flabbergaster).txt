@@ -1,0 +1,165 @@
+
+
+SpellsList["wristpocket"] = {
+	name : "Wristpocket",
+	classes : ["wizard"],
+	source : ["EGtW", 0],
+	level : 2,
+	school : "Conj",
+	time : "1 a",
+	range : "Self",
+	components : "S",
+	duration : "Conc, 1 hour",
+	description : "Make object enter pocket dimension. Summon with action.",
+	descriptionFull : "You flick your wrist, causing one object in your hand to vanish. The object, which only you can be holding and can weigh no more than 5 pounds, is transported to an extradimensional space, where it remains for the duration. Until the spell ends, you can use your action to summon the object to your free hand, and you can use your action to return the object to the extradimensional space. An object still in the pocket plane when the spell ends appears in your space, at your feet.",
+};
+
+
+/*
+--------------------------------------------------
+The Feat below is simply to seperate these spells from the basic class spells.
+*/
+
+
+FeatsList["marvelous creations"] = {
+	name : "Marvelous Creations",
+	source : ["BRDV", 0],
+	prerequisite : "Levels in the Artificer(Flabbergaster) class",
+	prereqeval : function(v) { return classes.known.artificer ? true : false; },
+	descriptionFull : "A creature can cast one of these spells using one of my marvelous creations.",
+	description : "A creature can cast one of these spells using one of my marvelous creations.",
+	spellcastingBonus : {
+		name : "marvelous creations",
+		spellcastingAbility : 4, 
+		spells : ["false life", "calm emotions", "enthrall", "mage hand", "animal messenger", "dragon's breath", "wristpocket", "feign death", "misty step", "freedom of movement", "nondetection", "clairvoyance"],
+		times : 12, 
+	},
+};
+
+
+/*
+--------------------------------------------------
+*/
+
+
+AddSubClass("artificer", "flabbergaster", {
+	regExpSearch : /flabbergaster/i,
+	subname : "Flabbergaster",
+	fullname : "Flabbergaster",
+	source : [["BRDV", 0]],
+	features : {
+		"subclassfeature3" : {
+			name : "Tools Proficiency",
+			source : [["BRDV", 0]],
+			minlevel : 3,
+			description : " [I am proficient with disguise kits and a musical instrument]",
+			toolProfs : ["Disguise kit", ["Musical instrument", 1]],
+			skills : ["Performance"],
+			spellcastingExtra : ["charm person", "disguise self", "enthrall", "pyrotechnics", "major image", "fear", "dominate beast", "wall of fire", "seeming", "mislead"],
+		},
+		"subclassfeature3.1" : {
+			name : "Marvelous Creations",
+			source : [["BRDV", 0]],
+			minlevel : 3,
+			description : desc([
+				"When I finish a long rest I can produce a number of marvels. Also, as an action, I can expend a spell slot to create one marvel from an appropriate object. I need the correct artisan's tools on my person to do this; A marvel lasts until my next long rest. For their effects, see the Marvelous Creations table on a Notes page.",
+			]),
+			additional : levels.map(function (n) {
+				return n < 3 ? "" : "create " + (n < 6 ? 1 : n < 15 ? 2 : 3) + " marvel" + (n < 6 ? "" : "s") + " after finishing a long rest";
+			}),
+			action : [["action", ""]],
+			toNotesPage : [{
+				name : "Marvelous Creations Table",
+				note : [
+					"Whenever I finish a long rest, I can magically produce a number of marvels using various components. I can create one at 3rd level, two at 6th level and three at 15th level. Creating a marvel requires me to have the appropriate Artisan's tools on my person, and any marvel once created lasts until the end of my next long rest. I can create additional marvels by expending a spell slot of 1st level or higher for each one. When I do so, I use my action to remove a marvel from my bag and activate it. The effects of my various marvels are found on the table below. I roll to determine the effect for each marvel I create when finishing a long rest. I can choose the effect from the table for those created by expending a spell slot.",
+		 			"\n  D6\tEFFECT",
+					"1\tSnake-Oil potion: Drunk as a bonus action, the drinker gains the benefit of the False Life spell, cast in accordance to the level of spell slot consumed in its making. This marvel is destroyed after use.",
+					"2\tMusic Box: Triggering fond memories, this marvel casts either the Calm Emotions or Enthrall spells, centered on the box. The user must use their action every turn to maintain the effect for the duration. This marvel may be used once per short rest.",
+					"3\tMechanical Bird: A creature can use this mechanical bird as if casting the Mage Hand cantrip. It can also be used to cast the Animal Messenger spell; however, it ceases to function once the message is delivered.",
+					"4\tFire Breathing potion: When drunk as a bonus action, the drinker gains the benefits of the Dragon's Breath spell but its effects only last until the end of the drinker’s turn. The spell attack and damage rolls use your Int modifier and the damage dice increase in accordance to the level of spell slot consumed in its making. This marvel is destroyed after use.", 
+					"5\tSwallowing Swords: I can modify an existing weapon, allowing a creature to make it disappear as if by the Wristpocket spell. The spell does not require concentration and its duration is extended to until summoned or until the end of the caster’s next long rest.",
+					"6\tStage Weapon: I can modify an existing weapon for use in theater. When I hit a creature with this weapon, that creature has resistance to the damage but appears twice as wounded. A creature can see through this deception with a successful Wisdom (Perception) check against my spell DC. When I hit a willing creature, I can cast the Feign Death spell upon them, making it look as if I killed them.",
+				],
+			}],
+			eval : function() { AddString('Feat Note 1', 'marvelous creations', '; '); },
+			removeeval : function() { RemoveString('Feat Note 1', 'marvelous creations'); },
+		},
+		"subclassfeature5" : {
+			name : "Shock and Awe",
+			source : [["BRDV", 0]],
+			minlevel : 5,
+			usages : 2,
+			recovery : "short rest",
+			description : desc([
+				"As an action, all creatures in a 10-ft cube around me must make a Wisdom save. If failed, they're all charmed by me or frightened of me (my choice) until the end of my next turn. I can use this feature once between short rests.",
+			]),
+			addMod : { type : "skill", field : ["Deception"], mod : "Int", text : "I can add my Intelligence modifier" },
+		},
+		"subclassfeature5.1" : {
+			name : "Extra Proficiency",
+			source : [["BRDV", 0]],
+			minlevel : 5,
+			description : desc([
+				"I am proficient in one of the following skills : Intimidation, Performance or Deception.",
+			]),
+			skillstxt : "Choose Deception, Performance or Intimidation.",
+			addMod : { type : "skill", field : ["Performance"], mod : "Int", text : "I can add my Intelligence modifier" },
+		},
+		"subclassfeature5.2" : {
+			name : "Suspended Disbelief",
+			source : [["BRDV", 0]],
+			minlevel : 5,
+			description : desc([
+				"I can add my Intelligence modifier to any Intimidation, Performance or Deception checks I make when utilizing the products of my craft, such as a costume or an illusion.",
+			]),
+			addMod : { type : "skill", field : ["Intimidation"], mod : "Int", text : "I can add my Intelligence modifier" },
+		},
+		"subclassfeature9" : {
+			name : "Additional Marvelous Creations",
+			source : [["BRDV", 0]],
+			minlevel : 9,
+			description : desc([ "I can create additional marvels." ]), 
+			toNotesPage : [{
+				name : "Additional Marvelous Creations Table",
+				note : [
+					"I can create additional marvels.",
+		 			"\n  D10\tEFFECT",
+					"7\tDisappearing Act: A creature can use this smoke bomb as a bonus action to cast the Misty Step spell. The creature also becomes invisible until the end of their turn. This marvel is destroyed after use.",
+					"8\tEscape Artist: These invisible gloves allow the wearer to cast Freedom of Movement once per long rest.",
+					"9\tWard against the Evil Eye: A creature wearing this medallion gains the benefits of the Nondetection spell as long as they are wearing it.",
+					"10\tCrystal Ball: A creature can use this marvel to cast the Clairvoyance spell once per long rest.",
+				],
+			}],
+		},
+		"subclassfeature15" : {
+			name : "Light Shows and Pyrotechnics",
+			source : [["BRDV", 0]],
+			minlevel : 15,
+			description : desc([
+				 "I have resistance to fire and lightning damage and immunity to being blinded or deafened.",
+			]),
+			dmgres : ["Fire", "Lightning"],
+			savetxt : { immune : ["blinded and deafened"] },
+		},
+		"subclassfeature15.1" : {
+			name : "The World is a Stage",
+			source : [["BRDV", 0]],
+			minlevel : 15,
+			description : desc([
+				 "I can create an extra-dimensional theater for my performances using a modified version of Mordenkainen's Magnificent Mansion.",
+			]),
+			usages : 1,
+			recovery : "long rest",
+			spellcastingBonus : [{
+				name : "The World is a Stage",
+				spells : ["mordenkainen's magnificent mansion"],
+				selection : ["mordenkainen's magnificent mansion"],
+				firstCol : "oncelr",
+			}]
+		},
+	},
+});
+
+
+
+

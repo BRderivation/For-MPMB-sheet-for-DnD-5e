@@ -1,0 +1,19 @@
+RaceList["wildfolk"] = {
+	regExpSearch : /wild(folk|man|men|ling|lings)/i,
+	name : "Wildfolk",
+	source : ["BRDV", 0],
+	plural : "Wildfolk",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", "Sylvan"],
+	vision : [["Darkvision", 60]],		
+	skillstxt : "Choose two from Animal Handling, Nature, Perception, Stealth, and Survival",
+	scores : [0, 0, 1, 0, 0, 0],
+	scorestxt : "+1 Constitution, +2 Strength or Wisdom;",
+	trait : "Wildfolk (+1 Constitution, +2 Strength or Wisdom)\n\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.\n\nChase: As a bonus action, I can move up to my speed toward an enemy that I can see or hear. I must end my move closer to this enemy than I started.",
+	action : ["bonus action", "Chase (dash to enemy)"],
+	carryingCapacity : 2
+};
+
