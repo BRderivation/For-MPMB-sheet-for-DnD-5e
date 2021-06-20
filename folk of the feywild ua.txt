@@ -142,5 +142,5 @@ RaceList["feywild hobgoblin"] = {
 			recovery: "long rest",
 		}
 	},
-	trait : "Feywild Hobgoblin (+2 to one ability score of my choice, and +1 to a different score of my choice)\n Size and Type: I am a medium sized humanoid.\n Fortune from the Many: If I fail an attack/ability check/saving throw, I can gain a bonus to the roll equal to the number of allies I can see within 30 feet of me (max. bonus of +5). I can do this a number of times equal to my PB per LR.\n Fey Gift: I can use the Help action as a bonus action a number of times equal to my PB per LR.\n At 3rd level, my Help action improves:\n - Hospitality: We both gain 1d6+PB temp HP\n - Passage: We both gain 10 ft to our walking until the start of my next turn.\n - Spite: The next creature we hit with an attack has disadvantage on their next attack.",
+	trait : "Feywild Hobgoblin (+2/+1 to or +1/+1/+1 to abilities of my choice)\n Fortune from the Many: If I fail an attack/check/save, I can gain a bonus equal to the number of allies I see within 30 ft of me (max. +5) PB times per LR.\n Fey Gift: I can use Help as a bonus action PB times per LR.\n At 3rd level, my Help action improves:\n - Hospitality: We both gain 1d6+PB temp HP\n - Passage: +10 ft to our walking speed til the start of my next turn.\n - Spite: Next creature we hit with an attack has disadvantage on their next attack.",
 };
