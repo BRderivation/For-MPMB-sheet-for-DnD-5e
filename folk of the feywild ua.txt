@@ -109,3 +109,38 @@ RaceList["rabbitfolk"] = {
 	trait : "Rabbitfolk (+2 to one ability score of my choice, and +1 to a different score of my choice)\n  Size and Type : I am a Small or Medium sized humanoid.\n  Hare-Trigger: I add my proficiency bonus to my initiative rolls.\n  Lucky Footwork: When I fail a Dexterity saving throw, I can use my reaction to roll a d4 and add it to the result.\n  Rabbit Hop: Once per turn when I walk at least 5 feet, I can hop, rolling a d12 and moving that many feet in a direction of my choice. This doesn’t cost movement, but my speed can't be 0.",
 };
 
+
+
+RaceList["feywild hobgoblin"] = {
+	regExpSearch : /^(?=.*feywild)(?=.*hobgoblin).*$/i,
+	name : "Feywild Hobgoblin",
+	sortname : "Hobgoblin, Feywild",
+	source : ["UA:FF", 2],
+	plural : "Feywild Hobgoblins",
+	size : 3,
+	speed : {
+		walk : { spd : 30, enc : 20 }
+	},
+	languageProfs : ["Common", 1],
+	vision : [["Darkvision", 60]],
+	savetxt : {
+		adv_vs : ["charmed"]
+	},
+	scorestxt : "Feywild Hobgoblin (+2/+1 to or +1/+1/+1 to ability scores of my choice)",
+	features : {
+		"fortune from the many" : {
+			name : "Fortune from the Many",
+			usages: "Proficiency bonus per ",
+			usagescalc : "event.value = What('Proficiency Bonus')",
+			recovery: "long rest",
+		},
+		"fey gift (help)" : {
+			name : "Fey Gift (help)",
+			usages : "Proficiency bonus per ",
+			action : ["bonus action", ""],
+			usagescalc : "event.value = What('Proficiency Bonus')",
+			recovery: "long rest",
+		}
+	},
+	trait : "Feywild Hobgoblin (+2 to one ability score of my choice, and +1 to a different score of my choice)\n Size and Type: I am a medium sized humanoid.\n Fortune from the Many: If I fail an attack/ability check/saving throw, I can gain a bonus to the roll equal to the number of allies I can see within 30 feet of me (max. bonus of +5). I can do this a number of times equal to my PB per LR.\n Fey Gift: I can use the Help action as a bonus action a number of times equal to my PB per LR.\n At 3rd level, my Help action improves:\n - Hospitality: We both gain 1d6+PB temp HP\n - Passage: We both gain 10 ft to our walking until the start of my next turn.\n - Spite: The next creature we hit with an attack has disadvantage on their next attack.",
+};
