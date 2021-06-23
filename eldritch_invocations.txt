@@ -1,0 +1,119 @@
+
+FeatsList["armorofshadows"] = {
+	name : "EI: Armor of Shadows",
+	source : ["PHB", 0],
+	descriptionFull : "I can cast Mage Armor at will, without expending a spell slot or material components.",
+	description : "I can cast Mage Armor at will, without expending a spell slot or material components.",
+	spellcastingBonus : {
+		name : "armor of shadows",
+		spellcastingAbility : 6, 
+		spells : ["mage armor"],
+		atwill : true, 
+	},
+};
+
+---------------------------------------------------------------------------------------------
+
+FeatsList["beast speech"] = {
+	name : "EI: Beast Speech",
+	source : ["PHB", 0],
+	descriptionFull : "I can cast Speak with Animals at will, without expending a spell slot or material components.",
+	description : "I can cast Speak with Animals at will, without expending a spell slot or material components.",
+	spellcastingBonus : {
+		name : "beast speech",
+		spellcastingAbility : 6, 
+		spells : ["speak with animals"],
+		atwill : true, 
+	},
+};
+
+---------------------------------------------------------------------------------------------
+
+FeatsList["devil's sight"] = {
+	name : "EI: Devil's Sight",
+	source : ["PHB", 0],
+	descriptionFull : "I can see in magical and nonmagical darkness out to 120 ft.",
+	description : "I can see in magical and nonmagical darkness out to 120 ft.",
+	vision : [["Devil's Sight", 120]],
+};
+
+---------------------------------------------------------------------------------------------
+
+FeatsList["eldritch sight"] = {
+	name : "EI: Eldritch Sight",
+	source : ["PHB", 0],
+	descriptionFull : "I can cast Detect Magic at will, without expending a spell slot or material components.",
+	description : "I can cast Detect Magic at will, without expending a spell slot or material components.",
+	spellcastingBonus : {
+		name : "eldritch sight",
+		spellcastingAbility : 6, 
+		spells : ["detect magic"],
+		atwill : true, 
+	},
+};
+
+---------------------------------------------------------------------------------------------
+
+FeatsList["eyes of the rune keeper"] = {
+	name : "EI: Eyes of the Rune Keeper",
+	source : ["PHB", 0],
+	descriptionFull : "I can read all writing.",
+	description : "I can read all writing.",
+	languageProfs : ["*All writing"],
+};
+
+---------------------------------------------------------------------------------------------
+
+FeatsList["fiendish vigor"] = {
+	name : "EI: Fiendish Vigor",
+	source : ["PHB", 0],
+	descriptionFull : "I can cast False Life at will, without expending a spell slot or material components.",
+	description : "I can cast False Life at will, without expending a spell slot or material components.",
+	spellcastingBonus : {
+		name : "fiendish vigor",
+		spellcastingAbility : 6, 
+		spells : ["false life"],
+		atwill : true, 
+	},
+};
+
+---------------------------------------------------------------------------------------------
+
+FeatsList["gaze of two minds"] = {
+	name : "EI: Gaze of Two Minds",
+	source : ["PHB", 0],
+	descriptionFull : "As an action, I can touch a willing creature and perceive through its senses (not my own). This lasts until the end of my next turn, but I can use an action to extend the duration.",
+	description : "As an action, I can touch a willing creature and perceive through its senses (not my own). This lasts until the end of my next turn, but I can use an action to extend the duration.",
+};
+
+---------------------------------------------------------------------------------------------
+
+FeatsList["maskofmanyfaces"] = {
+	name : "EI: Mask of Many Faces",
+	source : ["PHB", 0],
+	descriptionFull : "I can cast Disguise Self at will, without expending a spell slot or material components.",
+	description : "I can cast Disguise Self at will, without expending a spell slot or material components.",
+	spellcastingBonus : {
+		name : "mask of many faces",
+		spellcastingAbility : 6, 
+		spells : ["disguise self"],
+		atwill : true, 
+	},
+};
+
+---------------------------------------------------------------------------------------------
+
+FeatsList["misty visions"] = {
+	name : "EI: Misty Visions",
+	source : ["PHB", 0],
+	descriptionFull : "I can cast Silent Image at will, without expending a spell slot or material components.",
+	description : "I can cast Silent Image at will, without expending a spell slot or material components.",
+	spellcastingBonus : {
+		name : "misty visions",
+		spellcastingAbility : 6, 
+		spells : ["silent image"],
+		atwill : true, 
+	},
+};
+
+---------------------------------------------------------------------------------------------
